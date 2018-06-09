@@ -5,28 +5,32 @@ using System.Linq;
 
 public class QueryPoint : MonoBehaviour {
 	
-	public int Danger = 0;
+	[SerializeField] private float danger = 0;
+	public float Danger { get{ return danger; } }
 	public int watchingCount;
 	public List<turretController> turrets = new List<turretController>();
 
+	const float turretAttackRange = 150f;
+	private Material material;
+
 	void Start () {
 		turrets.AddRange ( GameObject.FindObjectsOfType<turretController>().ToList() );
+		material = GetComponent<Renderer>().material;
 	}
 
 	void Update () {
-		Danger = 0;
+		danger = 0;
 		foreach (var t in turrets) {
 			var forward = t.transform.forward; 
 			var toOther = Vector3.Normalize(transform.position - t.transform.position);
 			var dot = Vector3.Dot(forward, toOther);
-			if ( dot > 0.98f ) Danger += 1;
+			var distance = Vector3.Distance(transform.position, t.transform.position);
+			var d = 1f - (distance / turretAttackRange);
+			if (d < 0) d = 0;
+			if ( dot > 0.98f ) danger += d;
 		}
-		if (Danger == 0) {
-			GetComponent<Renderer> ().material.color = Color.white;
-		} else if (Danger == 1) {
-			GetComponent<Renderer> ().material.color = Color.yellow;
-		} else if (Danger == 2) {
-			GetComponent<Renderer> ().material.color = Color.red;
-		}
+
+		material.color = new Color(danger, 1f-danger, 1f-danger, 1);
+
 	}
 }
