@@ -58,7 +58,7 @@ public class StegeManager : MonoBehaviour {
 	public void GetPlayerProgressingDirection (Transform SoldierA) {
 		foreach (var q in queryPoints) {
 			q.GetComponent<Renderer> ().material.color = Color.white;
-			q.Danger -= 1;
+			// q.Danger -= 1;
 		}
 		var points = queryPoints.Where (q => { 
 			var forward = SoldierA.transform.forward; 
