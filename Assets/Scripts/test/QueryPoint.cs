@@ -5,6 +5,7 @@ using System.Linq;
 
 public class QueryPoint : MonoBehaviour {
 	
+	[SerializeField] private LayerMask obstacleMask;
 	[SerializeField] private float danger = 0;
 	public float Danger { get{ return danger; } }
 	public int watchingCount;
@@ -27,10 +28,11 @@ public class QueryPoint : MonoBehaviour {
 			var distance = Vector3.Distance(transform.position, t.transform.position);
 			var d = 1f - (distance / turretAttackRange);
 			if (d < 0) d = 0;
+
 			if ( dot > 0.98f ) danger += d;
 		}
 
-		material.color = new Color(1f, 1f-danger, 1f-danger, 1);
+		material.color = new Color(1f, 1f-danger, 1f-danger, danger);
 
 	}
 }
