@@ -30,7 +30,7 @@ public class QueryPoint : MonoBehaviour {
 			if ( dot > 0.98f ) danger += d;
 		}
 
-		material.color = new Color(danger, 1f-danger, 1f-danger, 1);
+		material.color = new Color(1f, 1f-danger, 1f-danger, 1);
 
 	}
 }
