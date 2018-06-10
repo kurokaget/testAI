@@ -74,16 +74,12 @@ public class StegeManager : MonoBehaviour {
 
 
 
-	public GameObject GetNearPoints (Transform SoldierA) {
-		//foreach (var q in queryPoints) {
-			//q.GetComponent<Renderer> ().material.color = Color.white;
-		//}
+	public QueryPoint GetNearPoints (Transform SoldierA) {
 		var point = queryPoints
-			.Where (q => Vector3.Distance (q.transform.position, SoldierA.position) < 20f)
+			.Where (q => Vector3.Distance (q.transform.position, SoldierA.position) < 50f)
 			.OrderBy (q => q.Danger)
 			.First ();
-		point.GetComponent<Renderer> ().material.color = Color.blue;
-		return point.gameObject;
+		return point;
 	}
 }
 

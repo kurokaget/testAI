@@ -5,20 +5,15 @@ using UnityEngine.AI;
 
 public class bodyController : MonoBehaviour 
 {
-	public GameObject QueryPoint;
+	[SerializeField] private QueryPoint targetPoint;
 	NavMeshAgent agent;
 
-	void Start () {
-		//QueryPoint = StegeManager.instance.GetNearPoints (transform);
-		//agent = GetComponent<NavMeshAgent> ();
-		//agent.SetDestination(target.transform.position);
-
-	}
-
-	void Update(){
-		QueryPoint = StegeManager.instance.GetNearPoints (transform);
-		//StegeManager.instance.GetPlayerProgressingDirection (transform);
-		agent = GetComponent<NavMeshAgent> ();
-		agent.SetDestination(QueryPoint.transform.position);
+	IEnumerator Start () {
+		while (true) {
+			yield return new WaitForSeconds(1.0f);
+			targetPoint = StegeManager.instance.GetNearPoints (transform);
+			agent = GetComponent<NavMeshAgent> ();
+			agent.SetDestination(targetPoint.transform.position);
+		}
 	}
 }
