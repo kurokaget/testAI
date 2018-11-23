@@ -10,7 +10,7 @@ public class bodyController : MonoBehaviour
 
 	IEnumerator Start () {
 		while (true) {
-			yield return new WaitForSeconds(1.0f);
+			yield return new WaitForSeconds(0.05f);
 			targetPoint = StegeManager.instance.GetNearPoints (transform);
 			agent = GetComponent<NavMeshAgent> ();
 			agent.SetDestination(targetPoint.transform.position);

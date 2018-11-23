@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Sugikousai/Sugikousai_scene1.unity
+    guid: e4fa88c8a13b1ad4f9569c4792d91dfb
+  - enabled: 1
+    path: Assets/Sugikousai/Sugikousai_scene2.unity
+    guid: f85e6a285487102438843fa9c7221377
+  - enabled: 1
+    path: Assets/Sugikousai/Sugikousai_scene3.unity
+    guid: b22c327ebd9392940a09e9a7bb55641e

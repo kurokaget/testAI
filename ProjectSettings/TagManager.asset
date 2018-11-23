@@ -20,11 +20,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Wall
+  - QueryPoint
+  - Reytest
+  - Enemy
   - 
   - 
   - 

@@ -8,10 +8,18 @@ public class turretController : MonoBehaviour {
 
 	public Transform target;
 
+	public new Vector3 mypos;
+
 	// Use this for initialization
-	void Start () {
+	/*IEnumerator Start () {
 		
-	}
+		while (true) {
+			yield return new WaitForSeconds (1);
+			//Debug.Log("10秒");
+			target = StegeManager.instance.GetRondomPoint().transform;
+			yield return new WaitForSeconds (10);
+		}
+	}*/
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,6 +28,7 @@ public class turretController : MonoBehaviour {
 		transform.rotation =
 		Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * speed);
 
+		Transform mypos = this.transform;
 		//StegeManager.instance.GetPlayerLookPoints (transform);
 	}
 }

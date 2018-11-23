@@ -7,6 +7,8 @@ public class StegeManager : MonoBehaviour {
 
 	public static StegeManager instance;
 
+	public bool showQueryPoint = true;
+
 	public GameObject queryPointPrefab;
 	public List<QueryPoint> queryPoints = new List<QueryPoint> ();
 
@@ -20,18 +22,20 @@ public class StegeManager : MonoBehaviour {
 
 	public int spacing = 5;
 
-	int i,j;
+	int i,j,k;
 
 	void Start () {
 		instance = this;
 		for (i = xMinimum; i < xMaximum; i++) {
-			for (j = zMinimum; j < zMaximum; j++) { 
-				var obj = Instantiate (queryPointPrefab) as GameObject;
-				obj.transform.SetParent (transform);
-				obj.transform.localPosition = new Vector3 (i*spacing,0,j*spacing);
-				var queryPoint = obj.GetComponent<QueryPoint> ();
-				queryPoints.Add (queryPoint);
-				queryPoint.name = ("QueryPoint") + i +(",")+ j;
+			for (k = yMinimum; k < yMaximum; k++) {
+				for (j = zMinimum; j < zMaximum; j++) { 
+					var obj = Instantiate (queryPointPrefab) as GameObject;
+					obj.transform.SetParent (transform);
+					obj.transform.localPosition = new Vector3 (i * spacing, k * spacing, j * spacing);
+					var queryPoint = obj.GetComponent<QueryPoint> ();
+					queryPoints.Add (queryPoint);
+					queryPoint.name = ("QueryPoint") + i + (",") + k +(",") + j;
+				}
 			}
 		}
 	}
@@ -76,10 +80,15 @@ public class StegeManager : MonoBehaviour {
 
 	public QueryPoint GetNearPoints (Transform SoldierA) {
 		var point = queryPoints
-			.Where (q => Vector3.Distance (q.transform.position, SoldierA.position) < 50f)
+			.Where (q => Vector3.Distance (q.transform.position, SoldierA.position) < 10f)
 			.OrderBy (q => q.Danger)
 			.First ();
 		return point;
+	}
+
+	public QueryPoint GetRondomPoint(){
+		int num = Random.Range (0, queryPoints.Count);
+		return queryPoints [num];
 	}
 }
 
