@@ -381,7 +381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &155734381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 155734380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8, y: 9.4, z: 2.4}
+  m_LocalPosition: {x: 4.8, y: 0.65, z: 2.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ae6b979cb85834eb42e73a14dae52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showQueryPoint: 0
+  showQueryPoint: 1
   queryPointPrefab: {fileID: 1779686802425898, guid: 80abf7224487a154a8625ee029c003d3,
     type: 2}
   queryPoints: []
@@ -504,7 +504,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 200520214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 413463492}
   - component: {fileID: 413463491}
   - component: {fileID: 413463490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,6 +999,19 @@ Prefab:
     - target: {fileID: 1652390538234964, guid: a236e012263604f449b9b791e4371466, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517480611698958, guid: a236e012263604f449b9b791e4371466, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 195006154175144242, guid: a236e012263604f449b9b791e4371466,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335507971885304, guid: a236e012263604f449b9b791e4371466, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a236e012263604f449b9b791e4371466, type: 2}

@@ -35,6 +35,9 @@ public class StegeManager : MonoBehaviour {
 					var queryPoint = obj.GetComponent<QueryPoint> ();
 					queryPoints.Add (queryPoint);
 					queryPoint.name = ("QueryPoint") + i + (",") + k +(",") + j;
+					queryPoint.x = i;
+					queryPoint.y = k;
+					queryPoint.z = j;
 				}
 			}
 		}

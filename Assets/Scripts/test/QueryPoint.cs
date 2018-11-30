@@ -12,6 +12,7 @@ public class QueryPoint : MonoBehaviour {
 	public int watchingCount;
 	public List<turretController> turrets = new List<turretController>();
 	public int syougaibutu;
+	public int x,y,z;
 
 	private int enemynum;
 	private new Vector3 enemypos;
@@ -69,15 +70,16 @@ public class QueryPoint : MonoBehaviour {
 			int Mask = 1<<EnemyLayer | 1<<WallLayer;
 
 			if (Physics.Raycast (ray, out hit, Mathf.Infinity, Mask)) {
+				//Debug.Log (hit.collider.gameObject);
 				if (hit.collider.tag == "Enemy") {
 					syougaibutu = 0;
 				} else {
 					syougaibutu = 1;
 					material.color = new Color (0,0,255);
 				}
-			} else {
-				syougaibutu = 1;
-				material.color = new Color (0,0,255);
+			//} else {
+				//syougaibutu = 1;
+				//material.color = new Color (0,0,255);
 			}
 		}
 	}
